@@ -1,16 +1,22 @@
-const express = require("express");
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/html/index.html");
+  res.sendFile(path.join(__dirname + "/html/index.html"));
 });
 
 app.get("/sobre", function (req, res) {
-  res.sendFile(__dirname + "/html/sobre.html");
+  res.sendFile(path.join(__dirname + "/html/sobre.html"));
 });
 
 app.get("/blog", function (req, res) {
-  res.sendFile(__dirname + "/html/blog.html");
+  res.sendFile(path.join(__dirname + "/html/blog.html"));
 });
 
 // parametros no endpoint
@@ -24,6 +30,6 @@ app.get("/ola/:cargo/:nome/:cor", function (req, res) {
 });
 
 // Última linha do código
-app.listen(3000, function () {
-  console.log("Servidor rodando na url http://localhost:3000");
+app.listen(3001, function () {
+  console.log("Servidor rodando na url http://localhost:3001");
 });

@@ -1,6 +1,14 @@
 {
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "services:up": "docker compose up -d",
+    "services:down": "docker compose down",
+    "psql": "docker exec -it node-postgres-1  psql -U docker -d polls"
+  },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "pg": "^8.14.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
